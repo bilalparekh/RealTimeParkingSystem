@@ -1,0 +1,16 @@
+.navbarText {
+  font-weight: bold;
+  font-size: 20pt;
+  margin-left: 3em;
+}
+nav{
+    background-color: gray !important;
+}
+.menuBynDiv {
+  display: inline-block;
+  float: right;
+}
+.menuBtns{
+    color: black;
+    font-size: 30px;
+}

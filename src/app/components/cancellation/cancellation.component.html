@@ -1,0 +1,39 @@
+
+<div class="col-md-4" style="position: relative; left: 32em;">
+    <button class="btn btn-success" (click)= "logout()">Log Out</button>
+</div>
+<div class="navbar navbar-inverse navbar-fixed-left">
+  <a class="navbar-brand">Menu</a>
+  <ul class="nav navbar-nav">
+   <li>
+     <a routerLink='/MainPage'>Booking Space</a> 
+   <li>
+     <a routerLink="/ViewParkingLocations">View Parking Locations</a>
+   </li>
+   <li>
+     <a routerLink="/cancel">Cancellation</a>
+   </li>
+   <li>
+        <a routerLink="/viewAllUser">View All User Data</a>
+      </li>
+  </ul>
+</div>
+<div class="container">
+ <div class="row">
+  <div class="parkingLocationTable" *ngFor="let spaces of BookingLocSpaces">
+        <div class="loc-css">
+          Parking Location : {{spaces.location}}
+        </div>
+
+        <div class="loc-css">
+            Number of Parking Slots "  : {{spaces.Spaces}}
+        </div>
+
+        <div class="btn-area">
+          <!--<button type="button" class="btn btn-primary viewBtn" [routerLink]="['/ViewSlots', spaces.$key]">VIEW</button>-->
+          <button type="button" class="btn btn-primary viewBtn" (click)="deleteSlots(spaces.$key)">Delete</button>
+        </div>
+      </div>
+   
+ </div>
+</div>

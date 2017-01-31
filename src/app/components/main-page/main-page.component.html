@@ -1,0 +1,55 @@
+<div class="col-md-4" style="position: relative; left: 32em;">
+<button class="btn btn-success" (click)="logout()">Log Out</button>
+</div>
+<div class="navbar navbar-inverse navbar-fixed-left">
+  <a class="navbar-brand">Menu</a>
+  <ul class="nav navbar-nav">
+    <li>
+      <a routerLink='/MainPage'>Booking Space</a>
+      <li>
+        <a routerLink="/ViewParkingLocations">View Parking Locations</a>
+      </li>
+      <li>
+        <a routerLink="/cancel">Cancellation</a>
+      </li>
+      <li>
+        <a routerLink="/viewAllUser">View All User Data</a>
+      </li>
+      <li>
+        <a routerLink="/userFeedback">Feedback</a>
+      </li>
+      
+  </ul>
+</div>
+<div class="container">
+  <div class="row">
+
+    <form #BookingForm="ngForm" class="form-horizontal" (submit)="save(BookingForm.value)">
+      <fieldset>
+
+
+        <legend>Add Location for Booking</legend>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="location">Add Location</label>
+          <div class="col-md-4">
+            <input id="location" name="location" type="text" placeholder="location" class="form-control input-md" ngModel>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="Spaces">Spaces</label>
+          <div class="col-md-4">
+            <input id="Spaces" name="Spaces" type="number" placeholder="Spaces" class="form-control input-md" ngModel>
+          </div>
+        </div>
+        <div class="form-group">
+
+          <div class="col-md-4">
+            <button md-button class="btn btn-success" color="primary">Save</button>
+            <!--<button type="button" class="btn btn-success" (click) = "login(LoginForm.value)">Log in</button>-->
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="col-md-4" style="position: relative; left: 32em;">
+<button class="btn btn-success" (click)="logout()">Log Out</button>
+</div>
+<div class="navbar navbar-inverse navbar-fixed-left">
+  <a class="navbar-brand">Menu</a>
+  <ul class="nav navbar-nav">
+    <li>
+      <a routerLink='/MainPage'>Booking Space</a></li>
+    <li>
+      <a routerLink="/ViewParkingLocations">View Parking Locations</a>
+    </li>
+
+    <li>
+      <a routerLink="/viewAllUser">View All User Data</a>
+    </li>
+
+  </ul>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="parkingLocationTable">
+
+
+      <div class="loc-css">
+        Parking Location : {{successDetails.location}}
+      </div>
+
+      <div class="loc-css">
+        Number of Parking Slots " : {{successDetails.Spaces}}
+      </div>
+
+      <div>
+        <div *ngFor="let slots of SlotsArray; let i = index" class="slot_css">
+
+
+          <button type="button" class="btn btn-primary" (click)="showLotForm(i)" [ngClass]="reservedParkingForToday.indexOf(i) > -1 ? 'yellowBtn' : ''">slot:{{[i]}}</button>
+        </div>
+      </div>
+
+      <!--<div class="btn-area">
+          <button type="button" class="btn btn-primary viewBtn" routerLink="/ViewSlots">VIEW</button>
+          <button type="button" class="btn btn-primary viewBtn" (click)="deleteSlots(spaces.$key)">Delete</button>
+        </div>-->
+      <div class="reserveSlotForm" *ngIf="showlotsForm">
+        <h3>Reserve Parking Slot : {{slotValue}}</h3>
+        <form #mySlotForm="ngForm" (submit)="saveLotInfo(mySlotForm.value)">
+          <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input type="date" class="form-control" #startDate id="startDate" name="startDate" placeholder="start Date" required [ngModel]>
+          </div>
+
+          <div class="form-group">
+            <label for="startTime">Start Time</label>
+            <input type="time" class="form-control" #startTime id="startTime" name="startTime" placeholder="Start Time" required [ngModel]>
+          </div>
+
+          <div class="form-group">
+            <label for="hours">Hours</label>
+            <input type="number" class="form-control" #hours id="hours" name="hours" placeholder="Hours" required [ngModel]>
+          </div>
+
+          <button class="btn btn-success addSlotsBtn">Submit</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
